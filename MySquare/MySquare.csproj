@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CC43AA0-DA24-495D-B27E-F2FE148FFF72}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MySquare</RootNamespace>
+    <AssemblyName>wTetris</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Evil Decepticons.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blocks\BaseBlock.cs" />
+    <Compile Include="Blocks\BigZBlock.cs" />
+    <Compile Include="Blocks\BlockOfFive.cs" />
+    <Compile Include="Blocks\CrossBlock.cs" />
+    <Compile Include="Blocks\RandomBlock.cs" />
+    <Compile Include="Blocks\UBlock.cs" />
+    <Compile Include="DataGram\DataGram.cs" />
+    <Compile Include="DataGram\FieldSize.cs" />
+    <Compile Include="LanGame\LanBase.cs" />
+    <Compile Include="MagicEnum.cs" />
+    <Compile Include="MagicTools\GrowMagic.cs" />
+    <Compile Include="MagicTools\MagicTool.cs" />
+    <Compile Include="MagicTools\RandomBlockMagic.cs" />
+    <Compile Include="MagicTools\RemoteMagic.cs" />
+    <Compile Include="MagicTools\RemoveLastLineMagic.cs" />
+    <Compile Include="MagicTools\SpeedDownMagic.cs" />
+    <Compile Include="MagicTools\SpeedUpMagic.cs" />
+    <Compile Include="Utilities\BlockFactory.cs" />
+    <Compile Include="Blocks\BlockOfFour.cs" />
+    <Compile Include="Blocks\JBlock.cs" />
+    <Compile Include="Blocks\SingleBlock.cs" />
+    <Compile Include="Blocks\SuperSingleBlock.cs" />
+    <Compile Include="Utilities\ColorExt.cs" />
+    <Compile Include="DataGram\GramConst.cs" />
+    <Compile Include="Utilities\ControlExt.cs" />
+    <Compile Include="Utilities\OnLineDetector.cs" />
+    <Compile Include="Utilities\Serializer.cs" />
+    <Compile Include="CreateLanGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateLanGame.Designer.cs">
+      <DependentUpon>CreateLanGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoinLanGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JoinLanGame.Designer.cs">
+      <DependentUpon>JoinLanGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LanGame\LanServer.cs" />
+    <Compile Include="LanGame\LanClient.cs" />
+    <Compile Include="DataGram\SquareData.cs" />
+    <Compile Include="MainPad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPad.Designer.cs">
+      <DependentUpon>MainPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameEngine.cs" />
+    <Compile Include="Squares\ISquare.cs" />
+    <Compile Include="Blocks\LBlock.cs" />
+    <Compile Include="Blocks\LineBlock.cs" />
+    <Compile Include="Blocks\OBlock.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\RotateTag.cs" />
+    <Compile Include="Utilities\SplashBase.cs" />
+    <Compile Include="Utilities\SplashImg.cs" />
+    <Compile Include="Squares\Square.cs" />
+    <Compile Include="Blocks\TBlock.cs" />
+    <Compile Include="Blocks\ZBlock.cs" />
+    <Compile Include="Squares\SuperSquare.cs" />
+    <Compile Include="Utilities\SplashString.cs" />
+    <EmbeddedResource Include="CreateLanGame.resx">
+      <DependentUpon>CreateLanGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoinLanGame.resx">
+      <DependentUpon>JoinLanGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPad.resx">
+      <DependentUpon>MainPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\win.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Evil Decepticons.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
