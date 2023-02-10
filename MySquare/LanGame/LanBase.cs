@@ -19,6 +19,8 @@ namespace MySquare.LanGame {
         protected abstract int LOCAL_PORT { get; }
         protected abstract int REMOTE_PORT { get; }
         protected IPEndPoint remoteEndPoint = null;
+        
+// 小游戏的时候，可以这么一个一个地写和调用回调.但是当游戏大到一定的规模，就需要比较好的系统化的封装        
         public event Action<byte[]> SquaresReceivedEvent;
         public event Action<int> RemoteGameOverEvent;
         public event Action<MagicEnum> MagicToolReceivedEvent;
@@ -30,11 +32,13 @@ namespace MySquare.LanGame {
             var bytes = GameEngine.Instance.SquareBytes;
             SendMsgToRemote(bytes); // <<<<<<<<<<<<<<<<<<<< 
         }
+
         public LanBase() {
             tcpListener = new TcpListener(IPAddress.Any, LOCAL_PORT);
             timerSendSquareGram.Interval = 100;// 频率不能太快，否则报错
             timerSendSquareGram.Elapsed += new System.Timers.ElapsedEventHandler(timerSendSquareGram_Elapsed);
         }
+
         public void SendMsgToRemote(byte[] sendBytes) {
             if (remoteEndPoint == null)
                 return;
@@ -70,6 +74,7 @@ namespace MySquare.LanGame {
             }
             catch { }
         }
+
         CancellationTokenSource tokenSource = null;
         public void StartListen() {
             tokenSource = new CancellationTokenSource();
@@ -148,8 +153,8 @@ namespace MySquare.LanGame {
             }
             detector.RemoteEndPoint = client.Client.RemoteEndPoint as IPEndPoint;
             detector.Mark();
-            var t = buf.ToArray();
-            var dataGramReceived = Serializer.Deserialize<DataGram<List<SquareData>>>(t);
+            var t = buf.ToArray(); // 字节数组
+            var dataGramReceived = Serializer.Deserialize<DataGram<List<SquareData>>>(t); // 反序列化 字节数组： 反成特定的类型
             if (dataGramReceived != null) {
                 switch (dataGramReceived.cmd) {
                 case GramConst.SQUARE_DATA:
@@ -162,7 +167,7 @@ namespace MySquare.LanGame {
                         RemoteConnectedEvent(remoteEndPoint);
                     break;
                 }
-            } else {
+            } else { // 这里是怎么转过来的，没有看明白
                 var magicGram = Serializer.Deserialize<DataGram<MagicEnum>>(t);
                 if (magicGram != null) {
                     if (magicGram.cmd == GramConst.MAGIC_TOOL) {
@@ -189,3 +194,4 @@ namespace MySquare.LanGame {
         }
     }
 }
+

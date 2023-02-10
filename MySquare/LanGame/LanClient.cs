@@ -12,11 +12,11 @@ using MySquare.DataGram;
 
 namespace MySquare.LanGame {
 
-    public class LanClient:LanBase {
+    public class LanClient : LanBase {
 
         class UdpState {
-            public UdpClient Udp { set; get; }
-            public IPEndPoint EndPoint { set; get; }
+            public UdpClient Udp { set; get; } // 这里为什么选用的是UDP？
+            public IPEndPoint EndPoint { set; get; } // 目的：标明客户端身份，是哪个客户端？
         }
         protected override int REMOTE_PORT {
             get { return 4563; }
@@ -37,16 +37,17 @@ namespace MySquare.LanGame {
                 return _Instance;
             }
         }
+        // 当某个客户端下线的时候，会知会服务器，服务器收到通知后所作的工作： 定义在这里，广播告知其它这个客户端的小伙伴们，这个客户端下线了，并从自己的连接的客户端链表里移除这个客户端
         void broadcastDetector_OffLineEvent(object sender, EventArgs e) {
             if (ServerBroadcastStopEvent != null) {
                 var end = (e as MyEventArgs).EndPoint;
-                ServerBroadcastStopEvent(end);
-                broadcastDetectorList.Remove(sender as OnLineDetector);
+                ServerBroadcastStopEvent(end); // 广播通知其它必要的客户端
+                broadcastDetectorList.Remove(sender as OnLineDetector); // 自己的维护管理
             }
         }
         public void ReceiveBroadcast(Action<IPEndPoint> callback) {
             ThreadPool.QueueUserWorkItem(obj => {
-                    // 只要未加入游戏，则不断循环接收广播
+                    // 只要未加入游戏，则不断循环接收广播： 这里好像有点儿没有看懂，是在做什么
                     while (!lanGameJoined) {
                         try {
                             IPEndPoint remoteIpEndPoint = new IPEndPoint(IPAddress.Any, LOCAL_PORT);
