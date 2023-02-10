@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MySquare.DataGram
-{
-    public class GramConst
-    {
+namespace MySquare.DataGram {
+
+    public class GramConst {
+
         public const string LAN_GAME_CREATED = "LAN_GAME_CREATED";
         public const string SQUARE_DATA = "SQUARE_DATA";
         public const string REMOTE_CONNECTED = "CLIENT_CONNECTED";

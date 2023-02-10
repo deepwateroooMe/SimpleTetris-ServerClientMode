@@ -5,21 +5,18 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace MySquare.Utilities
-{
-    public abstract class SplashBase<T> : IDisposable
-    {
+namespace MySquare.Utilities {
+
+    public abstract class SplashBase<T> : IDisposable {
+
         private T _Content;
-        public T Content
-        {
-            set
-            {
+        public T Content {
+            set {
                 _Content = value;
                 if (timer != null)
-                    timer.Enabled = true;
+                timer.Enabled = true;
             }
-            get
-            {
+            get {
                 return _Content;
             }
         }
@@ -28,15 +25,12 @@ namespace MySquare.Utilities
         protected Size objSize = Size.Empty;
         private int timerTag = 0;
         private PictureBox canvas = null;
-        protected Point Loc
-        {
-            get
-            {
+        protected Point Loc {
+            get {
                 return new Point((canvas.Width - objSize.Width) / 2, (canvas.Height - objSize.Height) / 2);
             }
         }
-        public SplashBase(PictureBox canv,T content, Size initSize)
-        {
+        public SplashBase(PictureBox canv,T content, Size initSize) {
             canvas = canv;
             Content = content;
             initObjSize = initSize;
@@ -47,37 +41,31 @@ namespace MySquare.Utilities
         }
         private bool canShow = true;
         protected abstract void Draw(Graphics g);
-        void canvas_Paint(object sender, PaintEventArgs e)
-        {
+        void canvas_Paint(object sender, PaintEventArgs e) {
             if (objSize.Width <= 0 || objSize.Height <= 0)
-                return;
+            return;
             if (canShow)
-                Draw(e.Graphics);
+            Draw(e.Graphics);
         }
-        private void Reset()
-        {
+        private void Reset() {
             objSize = initObjSize;
             timerTag = 0;
         }
-        void timer_Tick(object sender, EventArgs e)
-        {
+        void timer_Tick(object sender, EventArgs e) {
             Go();
             canvas.Invalidate();
         }
         public event Action SplashCompletedEvent;
-        private void Go()
-        {
+        private void Go() {
             int a = 9;
-            if (timerTag > a)
-            {
+            if (timerTag > a) {
                 Reset();
                 timer.Enabled = false;
                 if (SplashCompletedEvent != null)
-                    SplashCompletedEvent();
+                SplashCompletedEvent();
                 return;
             }
-            switch (timerTag % a)
-            {
+            switch (timerTag % a) {
                 case 0:
                     objSize = initObjSize;
                     break;
@@ -101,12 +89,10 @@ namespace MySquare.Utilities
             }
             timerTag++;
         }
-        public void Clear()
-        {
+        public void Clear() {
             canShow = false;
         }
-        public void Dispose()
-        {
+        public void Dispose() {
             timer.Enabled = false;
             timer.Dispose();
         }

@@ -1,0 +1,8 @@
+#+latex_class: cn-article
+#+title: 别人写的小弄俄罗斯方块砖初型
+#+author: deepwaterooo
+
+* 参考相关
+- 源码地址： https://gitee.com/rainlik2022/my-square
+- 博文地址： https://zhuanlan.zhihu.com/p/483044015
+* 看别人的代码，再理解消化一下双端Server-Client模式的连接，以及为什么需要必要的异步包装等等基础

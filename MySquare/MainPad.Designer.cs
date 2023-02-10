@@ -1,33 +1,22 @@
-﻿namespace MySquare
-{
-    partial class MainPad
-    {
-        /// <summary>
-        /// 必需的设计器变量。
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+﻿namespace MySquare {
 
-        /// <summary>
-        /// 清理所有正在使用的资源。
-        /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+    partial class MainPad {
+        // 必需的设计器变量。
+        private System.ComponentModel.IContainer components = null;
+        // 清理所有正在使用的资源。
+        // <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
         }
 
+// 据说这里是自动生成的代码，就是不知道是怎么生成的
         #region Windows 窗体设计器生成的代码
-
-        /// <summary>
-        /// 设计器支持所需的方法 - 不要
-        /// 使用代码编辑器修改此方法的内容。
-        /// </summary>
-        private void InitializeComponent()
-        {
+        // 设计器支持所需的方法 - 不要
+        // 使用代码编辑器修改此方法的内容。
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPad));
             this.mainContainer = new System.Windows.Forms.PictureBox();
             this.nextPreviewContainer = new System.Windows.Forms.PictureBox();
@@ -257,8 +246,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.游戏ToolStripMenuItem,
-            this.联网游戏ToolStripMenuItem});
+                    this.游戏ToolStripMenuItem,
+                    this.联网游戏ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(793, 25);
@@ -268,9 +257,9 @@
             // 游戏ToolStripMenuItem
             // 
             this.游戏ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.开始新游戏ToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.暂停继续ToolStripMenuItem});
+                    this.开始新游戏ToolStripMenuItem,
+                    this.toolStripSeparator1,
+                    this.暂停继续ToolStripMenuItem});
             this.游戏ToolStripMenuItem.Name = "游戏ToolStripMenuItem";
             this.游戏ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.游戏ToolStripMenuItem.Text = "单机游戏";
@@ -297,8 +286,8 @@
             // 联网游戏ToolStripMenuItem
             // 
             this.联网游戏ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.建立主机ToolStripMenuItem,
-            this.加入游戏ToolStripMenuItem});
+                    this.建立主机ToolStripMenuItem,
+                    this.加入游戏ToolStripMenuItem});
             this.联网游戏ToolStripMenuItem.Name = "联网游戏ToolStripMenuItem";
             this.联网游戏ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.联网游戏ToolStripMenuItem.Text = "联网游戏";
@@ -320,9 +309,9 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gameStatus,
-            this.HostOrClientStatus,
-            this.toolStripStatusLabel1});
+                    this.gameStatus,
+                    this.HostOrClientStatus,
+                    this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 532);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(793, 22);
@@ -419,11 +408,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.player2ScoreCanvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         #endregion
-
         private System.Windows.Forms.PictureBox mainContainer;
         private System.Windows.Forms.PictureBox nextPreviewContainer;
         private System.Windows.Forms.Label labelNext;
@@ -455,7 +441,5 @@
         private System.Windows.Forms.ToolStripStatusLabel HostOrClientStatus;
         private System.Windows.Forms.PictureBox player2ScoreCanvas;
         private System.Windows.Forms.Label magicRandomBlock;
-
     }
 }
-

@@ -1,33 +1,20 @@
-﻿namespace MySquare
-{
-    partial class JoinLanGame
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+﻿namespace MySquare {
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+    partial class JoinLanGame {
+        // Required designer variable.
+        private System.ComponentModel.IContainer components = null;
+        // Clean up any resources being used.
+        // <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+#region Windows Form Designer generated code
+        // Required method for Designer support - do not modify
+        // the contents of this method with the code editor.
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JoinLanGame));
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -76,11 +63,8 @@
             this.Text = "加入局域网游戏";
             this.Load += new System.EventHandler(this.JoinLanGame_Load);
             this.ResumeLayout(false);
-
         }
-
-        #endregion
-
+#endregion
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
     }
